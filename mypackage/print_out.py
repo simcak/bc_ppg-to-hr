@@ -13,8 +13,9 @@ def figure_ppg_with_peaks(data, peaksPositions, ppg_signal):
     plt.figure(figsize=(10, 4))
     plt.plot(time_axis, ppg_signal, label='PPG Signal')
     plt.scatter(time_axis[peaksPositions], ppg_signal[peaksPositions], color='red', label='Detected Peaks')
-    plt.scatter(time_axis[data['refLocs']], ppg_signal[data['refLocs']], marker='x', color='blue', label='Reference Peaks')
-    plt.title(f'PPG Signal with Detected Peaks in: {data["name"]}')
+    if data['refLocs'] is not 0:
+        plt.scatter(time_axis[data['refLocs']], ppg_signal[data['refLocs']], marker='x', color='blue', label='Reference Peaks')
+    plt.title(f'PPG Signal with Detected Peaks in: {data["ID"]}')
     plt.xlabel('Time [seconds]')
     plt.ylabel('Amplitude')
     plt.legend()

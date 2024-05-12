@@ -19,3 +19,12 @@ def HR_and_peakCount(data, peaksPositions, name):
     peak_diff = abs(len(peaksPositions) - len(data['refLocs']))
 
     return Our_HR, Ref_HR, HR_diff, peak_diff
+
+def HR_and_peakCount_BUT_PPG(data, peaks):
+    time_of_peaks = peaks / data['fs']
+    heart_rates = 60.0 / np.diff(time_of_peaks)
+    Our_HR = np.mean(heart_rates)
+    Ref_HR = data['ref_HR']
+    HR_diff = abs(Our_HR - Ref_HR)
+
+    return Our_HR, Ref_HR, HR_diff

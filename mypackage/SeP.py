@@ -34,3 +34,6 @@ def calculate_Se_Pp(confusion_matrix):
     Pp = np.sum(np.array([tp for _, _, tp in confusion_matrix])) / (np.sum(np.array([tp for _, _, tp in confusion_matrix])) + np.sum(np.array([fp for _, fp, _ in confusion_matrix])))
     
     return Se * 100, Pp * 100
+
+def calculate_F1_score(Se, Pp):
+	return ((2 * Se * Pp) / (Se + Pp))
