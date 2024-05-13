@@ -88,3 +88,23 @@ def figure_HR(rate):
     plt.xlabel('Sample Index')
     plt.ylabel('Heart Rate [BPM]')
     plt.show()
+
+"""
+    plot the signal and three derivates of it
+"""
+def figure_derivates_of_signal(filt_sig, filt_d1, filt_d2, filt_d3):
+    plt.figure(figsize=(10, 4))
+    plt.subplot(4, 1, 1)
+    plt.plot(filt_sig)
+    plt.title('Filtered PPG Signal')
+    plt.subplot(4, 1, 2)
+    plt.plot(filt_d1)
+    plt.title('First Derivative')
+    plt.subplot(4, 1, 3)
+    plt.plot(filt_d2)
+    plt.title('Second Derivative')
+    plt.subplot(4, 1, 4)
+    plt.plot(filt_d3)
+    plt.title('Third Derivative')
+    plt.tight_layout()
+    plt.show()
